@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Welcome
+{% endblock %}
+
+{% block style %}
+<style type="text/css">
+    .first {
+        background-color: hsl(220, 40%, 90%);
+    }
+    .second {
+        background-color: hsl(100, 40%, 90%);
+    }
+    .block {
+        text-align: center;
+    }
+    .centered {
+        display: inline-block;
+        vertical-align: middle;
+        width: 300px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row-fluid first">
+    <div class="span4 block">
+        <h1 class="centered">HISTORIC</h1>
+    </div>
+    <div class="span8">
+        <img src="http://placekitten.com/100/100">
+    </div>
+</div>
+<div class="row-fluid second">
+    <div class="span4 block">
+        <h1 class="centered">SCIENTIFIC</h1>
+    </div>
+    <div class="span8">
+        <img src="http://placekitten.com/100/100">
+    </div>
+</div>
+<div class="row-fluid first">
+    <div class="span4 block">
+        <h1 class="centered">MYSTERY</h1>
+    </div>
+    <div class="span8">
+        <img src="http://placekitten.com/100/100">
+    </div>
+</div>
+<div class="row-fluid second">
+    <div class="span4 block">
+        <h1 class="centered">HISTORIC</h1>
+    </div>
+    <div class="span8">
+        <img src="http://placekitten.com/100/100">
+    </div>
+</div>
+<div class="row-fluid first">
+    <div class="span4 block">
+        <h1 class="centered">HISTORIC</h1>
+    </div>
+    <div class="span8">
+        <img src="http://placekitten.com/100/100">
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+{% endblock %}

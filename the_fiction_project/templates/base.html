@@ -1,66 +1,75 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{% block title %}the_fiction_project{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}the_fiction_project{% endblock title %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- Le styles -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
-    <link href="{% static 'css/bootstrap-responsive.min.css' %}" rel="stylesheet">
+  <!-- Le styles -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <style>
+    .content {
+      padding-top: 60px;
+    }
+    .left_nav{
+      background-color: gray;
+    }
+  </style>
+  <link href="{% static 'css/bootstrap-responsive.min.css' %}" rel="stylesheet">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+      <![endif]-->
 
-    <!-- This file store project specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+      <!-- This file store project specific CSS -->
+      <link href="{% static 'css/project.css' %}" rel="stylesheet">
 
     <!-- Use this to quickly test CSS changes in a template,
-        then move to project.css -->
-    {% block extra_css %}{% endblock extra_css %}
+    then move to project.css -->
+    {% block style %}{% endblock style %}
   </head>
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">the_fiction_project</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+
+
+    <div class="row-fluid no-space">
+      <div class="left_nav">
+        <div>
+          <h1>Scientific</h1>
+        </div>
+      </div>
+      <div class="offset0 main">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="#">the_fiction_project</a>
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div>
+          </div>
+        </div>
+        <div class="container content">
+          {% block content %}
+          {% endblock content %}
+
         </div>
       </div>
     </div>
-
-    <div class="container">
-
-      <h1>{% block page_title %}Example Base Template{% endblock page_title %}</h1>
-
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
-
-    </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
@@ -70,7 +79,33 @@
 
     <!-- place project specific Javascript in this file -->
     <script src="{% static 'js/project.js' %}"></script>
+    <script src="{% static 'js/meny.min.js' %}"></script>
+    <script type="text/javascript">
+      var meny = Meny.create({
+    // The element that will be animated in from off screen
+    menuElement: document.querySelector( '.left_nav' ),
 
-    {% block extra_js %}{% endblock extra_js %}
+    // The contents that gets pushed aside while Meny is active
+    contentsElement: document.querySelector( '.main' ),
+
+    // The alignment of the menu (top/right/bottom/left)
+    position: 'left',
+
+    // The height of the menu (when using top/bottom position)
+    height: 200,
+
+    // The width of the menu (when using left/right position)
+    width: 160,
+
+    // Use mouse movement to automatically open/close
+    mouse: true,
+
+    // Use touch swipe events to open/close
+    touch: true
+  });
+
+    </script>
+
+    {% block scripts %}{% endblock scripts %}
   </body>
-</html>
+  </html>
